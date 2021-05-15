@@ -94,7 +94,7 @@ header {
   justify-content: center;
 }
 
-#notes-text {
+#note-text {
   width: calc(100% - 10px);
   min-height: 43px;
   margin: 0 5px;
@@ -226,6 +226,7 @@ input:focus {
 }
 
 #note-title {
+  margin-bottom: 1em;
   padding-top: 12px;
   letter-spacing: .00625em;
   font-size: 1rem;
