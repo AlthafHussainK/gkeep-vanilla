@@ -32,6 +32,10 @@ class App {
       this.openTooltip(event)
     })
 
+    document.body.addEventListener('mouseout', event => {
+      this.closeTooltip(event)
+    })
+
     this.$form.addEventListener('submit', event => {
       event.preventDefault()
       const title = this.$noteTitle.value
@@ -105,6 +109,11 @@ class App {
     const vertical = noteCoords.top + window.scrollY
     this.$colorTooltip.style.transform = `translate(${horizontal}px, ${vertical}px)`;
     this.$colorTooltip.style.display = 'flex'
+  }
+
+  closeTooltip(event) {
+    if (!event.target.matches('.toolbar-color')) return
+    this.$colorTooltip.style.display = 'none'
   }
 
   addNote({ title, text }) {
