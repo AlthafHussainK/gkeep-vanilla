@@ -3,7 +3,7 @@ class App {
     this.notes = [];
     this.title = '';
     this.text = '';
-    this.id = ''
+    this.id = '';
 
     this.$placeholder = document.querySelector('#placeholder')
     this.$form = document.querySelector('#form')
@@ -15,6 +15,7 @@ class App {
     this.$modal = document.querySelector('.modal')
     this.$modalTitle = document.querySelector('.modal-title')
     this.$modalText = document.querySelector('.modal-text')
+    this.$modalClose = document.querySelector('.modal-close-button')
 
 
     this.addEventListeners()
@@ -41,6 +42,10 @@ class App {
     this.$formClose.addEventListener('click', event => {
       event.stopPropagation()
       this.closeForm()
+    })
+
+    this.$modalClose.addEventListener('click', event => {
+      this.closeModal(event)
     })
   }
 
@@ -82,6 +87,12 @@ class App {
     } 
   }
 
+  closeModal(event) {
+    
+    this.editNote()
+    this.$modal.classList.toggle('open-modal')
+  }
+
   addNote({ title, text }) {
     const newNote = {
       title,
@@ -92,6 +103,17 @@ class App {
     this.notes = [...this.notes, newNote]
     this.displayNotes()
     this.closeForm()
+  }
+  
+  editNote() {
+    const title = this.$modalTitle.value
+    const text = this.$modalText.value
+    
+    this.notes = this.notes.map(note => 
+      note.id === Number(this.id) ? { ...note, title, text } : note
+    )
+    
+    this.displayNotes()
   }
 
   selectNote(event) {
