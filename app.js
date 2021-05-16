@@ -77,7 +77,7 @@ class App {
           </div>
         </div>
       </div>
-    `);
+    `).join("");
   }
 
 }
