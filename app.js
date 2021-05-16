@@ -44,6 +44,13 @@ class App {
       this.style.display = 'none'
     })
 
+    this.$colorTooltip.addEventListener('click', event => {
+      const color = event.target.dataset.color
+      if (color) {
+        this.editNoteColor(color)
+      }
+    })
+
     this.$form.addEventListener('submit', event => {
       event.preventDefault()
       const title = this.$noteTitle.value
@@ -111,7 +118,7 @@ class App {
 
   openTooltip(event) {
     if (!event.target.matches('.toolbar-color')) return;
-    this.id = event.target.nextElementSibling.dataset.id 
+    this.id = event.target.dataset.id 
     const noteCoords = event.target.getBoundingClientRect()
     const horizontal = noteCoords.left + window.scrollX
     const vertical = noteCoords.top + window.scrollY
@@ -143,7 +150,13 @@ class App {
     this.notes = this.notes.map(note => 
       note.id === Number(this.id) ? { ...note, title, text } : note
     )
-    
+    this.displayNotes()
+  }
+
+  editNoteColor(color) {
+    this.notes = this.notes.map(note => 
+      note.id === Number(this.id) ? { ...note, color } : note
+    )
     this.displayNotes()
   }
 
@@ -166,7 +179,7 @@ class App {
         <div class="note-text">${note.text}</div>
         <div class="toolbar-container">
           <div class="toolbar">
-            <img class="toolbar-color" src="" alt="">⚙️
+            <img class="toolbar-color" data-id=${note.id} src="" alt="">⚙️
             <img class="toolbar-delete" src="" alt="">⚙️
           </div>
         </div>
