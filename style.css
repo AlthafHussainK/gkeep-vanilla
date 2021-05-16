@@ -175,7 +175,7 @@ input:focus {
 
 #submit-button,
 #form-close-button {
-  margin: .2em 0;
+  margin: .5em;
   box-sizing: border-box;
   color: rgba(0,0,0,.87);
   overflow: hidden;
