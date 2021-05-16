@@ -36,6 +36,14 @@ class App {
       this.closeTooltip(event)
     })
 
+    this.$colorTooltip.addEventListener('mouseover', function() {
+      this.style.display = 'flex'
+    })
+
+    this.$colorTooltip.addEventListener('mouseout', function() {
+      this.style.display = 'none'
+    })
+
     this.$form.addEventListener('submit', event => {
       event.preventDefault()
       const title = this.$noteTitle.value
