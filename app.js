@@ -8,6 +8,7 @@ class App {
     this.$noteTitle = document.querySelector('#note-title')
     this.$noteText = document.querySelector('#note-text')
     this.$formButtons = document.querySelector('#form-buttons')
+    this.$formClose = document.querySelector('#form-close-button')
 
     this.addEventListeners()
   }
@@ -26,6 +27,11 @@ class App {
         //add note
         this.addNote({ title, text })
       } 
+    })
+
+    this.$formClose.addEventListener('click', event => {
+      event.stopPropagation()
+      this.closeForm()
     })
   }
 
