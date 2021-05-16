@@ -71,7 +71,7 @@ class App {
 
     this.$notes.innerHTML = this.notes.map(note => `
       <div style="background: ${note.color};" class="note">
-        <div class=${note.title && 'note-title'}">${note.title}</div>
+        <div class="${note.title && 'note-title'}">${note.title}</div>
         <div class="note-text">${note.text}</div>
         <div class="toolbar-container">
           <div class="toolbar">
