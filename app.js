@@ -199,8 +199,8 @@ class App {
         <div class="note-text">${note.text}</div>
         <div class="toolbar-container">
           <div class="toolbar">
-            <img class="toolbar-color" data-id=${note.id} src="" alt="">⚙️
-            <img class="toolbar-delete" data-id=${note.id} src="" alt="">⚙️
+            <img class="toolbar-color" data-id=${note.id} src="https://img.icons8.com/office/16/000000/paint-palette.png" alt="">
+            <img class="toolbar-delete" data-id=${note.id} src="https://img.icons8.com/metro/26/000000/trash.png" alt="">
           </div>
         </div>
       </div>
